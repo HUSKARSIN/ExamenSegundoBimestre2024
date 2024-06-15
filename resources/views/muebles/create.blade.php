@@ -1,33 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Crear Mueble</title>
-</head>
-<body>
+<!-- resources/views/muebles/create.blade.php -->
+@extends('layouts.app')
+
+@section('title', 'Crear Mueble')
+
+@section('content')
     <h1>Crear Nuevo Mueble</h1>
     @if ($errors->any())
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
     @endif
     <form action="{{ route('muebles.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <label>Nombre:</label>
-        <input type="text" name="nombre">
-        <br>
-        <label>Material:</label>
-        <input type="text" name="material">
-        <br>
-        <label>Precio:</label>
-        <input type="text" name="precio">
-        <br>
-        <label>Imagen:</label>
-        <input type="file" name="imagen">
-        <br>
-        <button type="submit">Guardar</button>
+        <div class="form-group">
+            <label>Nombre:</label>
+            <input type="text" name="nombre" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Material:</label>
+            <input type="text" name="material" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Precio:</label>
+            <input type="text" name="precio" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Imagen:</label>
+            <input type="file" name="imagen" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
-</body>
-</html>
+@endsection
 
