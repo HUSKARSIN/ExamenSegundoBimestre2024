@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\http\Controllers\CategoriaController;
-use App\http\Controllers\ProductoController;
+use App\http\Controllers\MuebleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +14,6 @@ use App\http\Controllers\ProductoController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::resource('almacen/categoria',CategoriaController::class);
-Route::resource('almacen/producto',ProductoController::class);
+/*Route::get('/', function () {return view('welcome');});*/
+Route::resource('muebles', MuebleController::class);
+    
